@@ -1,0 +1,41 @@
+<form id="bookingForm">
+  <input type="text" id="clientName" placeholder="Full Name" required>
+  <input type="email" id="clientEmail" placeholder="Email" required>
+  <input type="tel" id="clientPhone" placeholder="Phone Number" required>
+  <input type="date" id="dob" required>
+
+  <fieldset>
+    <legend>Style(s) you're interested in</legend>
+    <label><input type="checkbox" name="style" value="Fine Line"> Fine Line</label>
+    <label><input type="checkbox" name="style" value="Traditional"> Traditional</label>
+    <label><input type="checkbox" name="style" value="Realism"> Realism</label>
+    <label><input type="checkbox" name="style" value="Blackwork"> Blackwork</label>
+    <!-- add more styles as needed -->
+  </fieldset>
+
+  <input type="url" id="referenceImage" placeholder="Link to a reference image (optional)">
+
+  <fieldset>
+    <legend>Location</legend>
+    <label><input type="radio" name="location" value="client_travels" required> I'll travel to the artist</label>
+    <label><input type="radio" name="location" value="artist_travels"> I need the artist to travel to me</label>
+  </fieldset>
+
+  <input type="text" id="clientAddress" placeholder="Your address (only if artist is traveling to you)">
+
+  <textarea id="notes" placeholder="Anything else we should know?"></textarea>
+
+  <label>
+    <input type="checkbox" id="ageConfirmed" required>
+    I confirm I am 18 years of age or older
+  </label>
+
+  <label>
+    <input type="checkbox" id="depositAgreed" required>
+    I understand a non-refundable $400 deposit is required once a day is assigned, which will count toward my final bill
+  </label>
+
+  <button type="submit">Submit Booking Request</button>
+  <p id="formStatus"></p>
+</form>
+<script type="module" src="./js/form.js"></script>

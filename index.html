@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bone &amp; Ember Tattoo — Custom Tattoo Work, Texas</title>
+  <meta name="description" content="Custom tattoo work from four artists across multiple styles. Bone & Ember Tattoo, Texas. By appointment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar__logo">
+    <span class="navbar__logo-text">BONE &amp; EMBER</span>
+  </div>
+  <nav class="navbar__links">
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a href="booking.html" class="btn btn--primary navbar__cta">Get Inked</a>
+</header>
+
+<section class="hero">
+  <div class="hero__content">
+    <p class="hero__eyebrow">Bone &amp; Ember Tattoo — Texas</p>
+    <h1 class="hero__headline">Some things in Texas fade.<br>This won't.</h1>
+    <p class="hero__sub">Custom tattoo work from four artists, four styles, one studio. By appointment.</p>
+    <div class="hero__actions">
+      <a href="booking.html" class="btn btn--primary">Get Inked</a>
+      <a href="#gallery" class="btn btn--ghost">See the work</a>
+    </div>
+  </div>
+  <div class="hero__image-wrap">
+    <img src="images/gallery/tattoo-01.jpg" alt="Bone & Ember artist at work">
+  </div>
+</section>
+
+<script type="module" src="./js/firebase-config.js"></script>
+<script>
+  function setNavHeight() {
+    const nav = document.querySelector('.navbar');
+    document.documentElement.style.setProperty('--navbar-height', nav.offsetHeight + 'px');
+  }
+  setNavHeight();
+  window.addEventListener('resize', setNavHeight);
+</script>
+
+</body>
+</html>
