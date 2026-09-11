@@ -1,41 +1,181 @@
-<form id="bookingForm">
-  <input type="text" id="clientName" placeholder="Full Name" required>
-  <input type="email" id="clientEmail" placeholder="Email" required>
-  <input type="tel" id="clientPhone" placeholder="Phone Number" required>
-  <input type="date" id="dob" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Session — Bone &amp; Ember Tattoo</title>
+  <meta name="description" content="Book a custom tattoo session with Bone & Ember Tattoo, Texas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  <fieldset>
-    <legend>Style(s) you're interested in</legend>
-    <label><input type="checkbox" name="style" value="Fine Line"> Fine Line</label>
-    <label><input type="checkbox" name="style" value="Traditional"> Traditional</label>
-    <label><input type="checkbox" name="style" value="Realism"> Realism</label>
-    <label><input type="checkbox" name="style" value="Blackwork"> Blackwork</label>
-    <!-- add more styles as needed -->
-  </fieldset>
+<header class="navbar">
+  <div class="navbar__logo">
+    <span class="navbar__logo-text">BONE &amp; EMBER</span>
+  </div>
+  <nav class="navbar__links">
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#faq">FAQ</a>
+  </nav>
+  <a href="form.html" class="btn btn--primary navbar__cta">Get Inked</a>
+</header>
 
-  <input type="url" id="referenceImage" placeholder="Link to a reference image (optional)">
+<section class="booking">
+  <div class="booking__intro">
+    <p class="booking__eyebrow">Bone &amp; Ember Tattoo — Texas</p>
+    <h1 class="booking__title">Tell us what you're thinking</h1>
+    <p class="booking__sub">Fill this out and one of our artists will reach out within 24 hours to talk through your idea and set a day.</p>
+  </div>
 
-  <fieldset>
-    <legend>Location</legend>
-    <label><input type="radio" name="location" value="client_travels" required> I'll travel to the artist</label>
-    <label><input type="radio" name="location" value="artist_travels"> I need the artist to travel to me</label>
-  </fieldset>
+  <form id="bookingForm" class="booking-form">
 
-  <input type="text" id="clientAddress" placeholder="Your address (only if artist is traveling to you)">
+    <label class="field">
+      <span class="field__label">Full Name</span>
+      <input type="text" id="clientName" required>
+    </label>
 
-  <textarea id="notes" placeholder="Anything else we should know?"></textarea>
+    <label class="field">
+      <span class="field__label">Social Media Account (for contact) — put "NA" if you don't have one</span>
+      <input type="text" id="socialMediaLink" placeholder="Instagram, TikTok, etc. or NA" required>
+    </label>
 
-  <label>
-    <input type="checkbox" id="ageConfirmed" required>
-    I confirm I am 18 years of age or older
-  </label>
+    <label class="field">
+      <span class="field__label">Email</span>
+      <input type="email" id="clientEmail" required>
+    </label>
 
-  <label>
-    <input type="checkbox" id="depositAgreed" required>
-    I understand a non-refundable $400 deposit is required once a day is assigned, which will count toward my final bill
-  </label>
+    <label class="field">
+      <span class="field__label">Cell Phone</span>
+      <input type="tel" id="clientPhone" required>
+    </label>
 
-  <button type="submit">Submit Booking Request</button>
-  <p id="formStatus"></p>
-</form>
+    <fieldset class="field-group">
+      <legend>Style(s) you're interested in</legend>
+      <div class="checkbox-grid">
+        <label><input type="checkbox" name="style" value="Cartoon"> Cartoon</label>
+        <label><input type="checkbox" name="style" value="3D"> 3D</label>
+        <label><input type="checkbox" name="style" value="Blackwork"> Blackwork</label>
+        <label><input type="checkbox" name="style" value="Continuous Line"> Continuous Line</label>
+        <label><input type="checkbox" name="style" value="Geometric"> Geometric</label>
+        <label><input type="checkbox" name="style" value="Fine Line"> Fine Line</label>
+        <label><input type="checkbox" name="style" value="Sketch"> Sketch</label>
+        <label><input type="checkbox" name="style" value="Small"> Small</label>
+        <label><input type="checkbox" name="style" value="Ignorant"> Ignorant</label>
+        <label><input type="checkbox" name="style" value="Micro"> Micro</label>
+        <label><input type="checkbox" name="style" value="Tribal"> Tribal</label>
+        <label><input type="checkbox" name="style" value="Realism"> Realism</label>
+      </div>
+    </fieldset>
+
+    <label class="field">
+      <span class="field__label">Tell us about your idea</span>
+      <textarea id="designBrief" rows="4" placeholder="What are you thinking? Subject, style details, size, colors vs. black and grey..." required></textarea>
+    </label>
+
+    <fieldset class="field-group">
+      <legend>When are you thinking of getting this done?</legend>
+      <label><input type="radio" name="sessionTiming" value="asap" required> As soon as possible</label>
+      <label><input type="radio" name="sessionTiming" value="2_4_weeks"> 2–4 weeks</label>
+      <label><input type="radio" name="sessionTiming" value="1_2_months"> 1–2 months</label>
+      <label><input type="radio" name="sessionTiming" value="2_3_months"> 2–3 months</label>
+    </fieldset>
+
+    <label class="field">
+      <span class="field__label">Placement (where on your body)</span>
+      <input type="text" id="placement" placeholder="e.g. forearm, upper back, calf" required>
+    </label>
+
+    <label class="field">
+      <span class="field__label">Reference for your idea (optional)</span>
+      <input type="url" id="referenceImage" placeholder="Link to a reference image">
+    </label>
+
+    <label class="field">
+      <span class="field__label">Where are you from?</span>
+      <input type="text" id="clientHometown" placeholder="City, State" required>
+    </label>
+
+    <fieldset class="field-group">
+      <legend>Location for the session</legend>
+      <label><input type="radio" name="location" id="locClientTravels" value="client_travels" required> I'll travel to the artist</label>
+      <label><input type="radio" name="location" id="locArtistTravels" value="artist_travels"> I need the artist to travel to me</label>
+    </fieldset>
+
+    <label class="field" id="addressField" hidden>
+      <span class="field__label">Your address</span>
+      <input type="text" id="clientAddress" placeholder="Only needed if the artist is traveling to you">
+    </label>
+
+    <label class="checkbox-line">
+      <input type="checkbox" id="ageConfirmed" required>
+      I confirm I am 18 years of age or older
+    </label>
+
+    <div class="deposit-notice">
+      <p>
+        A <strong>$400 deposit</strong> is required once an artist reviews your request and assigns you a day.
+        It's <strong>non-refundable</strong>, but counts toward your final bill — you're not paying it now, and you're not paying it twice.
+      </p>
+      <label class="checkbox-line">
+        <input type="checkbox" id="depositAgreed" required>
+        I understand and agree to the $400 non-refundable deposit, to be paid once a day is assigned
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn--primary booking-form__submit">Submit Booking Request</button>
+    <p id="formStatus" class="booking-form__status"></p>
+  </form>
+</section>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__logo">
+      <img src="images/logo-full.png" alt="Bone & Ember Tattoo Studio">
+    </div>
+    <div class="site-footer__info">
+      <nav class="site-footer__socials">
+        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/YOUR_HANDLE" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/YOUR_HANDLE" target="_blank" rel="noopener">X</a>
+      </nav>
+      <p class="site-footer__about">
+         One studio — real craftsmanship and a booking process that actually respects your time. Based in Texas, by appointment.
+      </p>
+      <nav class="site-footer__nav">
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+    </div>
+  </div>
+  <p class="site-footer__copy">&copy; Bone &amp; Ember Tattoo. Texas. By appointment.</p>
+</footer>
+
+<script type="module" src="./js/firebase-config.js"></script>
 <script type="module" src="./js/form.js"></script>
+<script>
+  function setNavHeight() {
+    const nav = document.querySelector('.navbar');
+    document.documentElement.style.setProperty('--navbar-height', nav.offsetHeight + 'px');
+  }
+  setNavHeight();
+  window.addEventListener('resize', setNavHeight);
+
+  // Show the address field only when "artist travels to me" is selected
+  const addressField = document.getElementById('addressField');
+  const addressInput = document.getElementById('clientAddress');
+  document.getElementById('locClientTravels').addEventListener('change', () => {
+    addressField.hidden = true;
+    addressInput.required = false;
+  });
+  document.getElementById('locArtistTravels').addEventListener('change', () => {
+    addressField.hidden = false;
+    addressInput.required = true;
+  });
+</script>
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="./js/ui.js"></script>
+</body>
+</html>

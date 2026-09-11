@@ -20,7 +20,7 @@
     <a href="#about">About</a>
     <a href="#faq">FAQ</a>
   </nav>
-  <a href="booking.html" class="btn btn--primary navbar__cta">Get Inked</a>
+  <a href="form.html" class="btn btn--primary navbar__cta">BOOK NOW</a>
 </header>
 
 <section class="hero">
@@ -29,7 +29,7 @@
     <h1 class="hero__headline">Some things in Texas fade.<br>This won't.</h1>
     <p class="hero__sub">Custom tattoo work from four artists, four styles, one studio. By appointment.</p>
     <div class="hero__actions">
-      <a href="booking.html" class="btn btn--primary">Get Inked</a>
+      <a href="form.html" class="btn btn--primary">Get Inked</a>
       <a href="#gallery" class="btn btn--ghost">See the work</a>
     </div>
   </div>
@@ -37,32 +37,7 @@
     <img src="images/gallery/tattoo-01.jpg" alt="Bone & Ember artist at work">
   </div>
 </section>
-<section class="category" id="cat-traditional">
-  <div class="category__info">
-    <h3 class="category__title">Traditional</h3>
-    <button class="category__toggle" aria-expanded="false" aria-controls="desc-traditional">
-      <span aria-hidden="true">+</span>
-      <span class="sr-only">Show description</span>
-    </button>
-    <p class="category__desc" id="desc-traditional" hidden>
-      Bold outlines, a limited saturated palette, and classic Americana imagery — anchors, roses, swallows. The style built to last decades without fading into mush.
-    </p>
-  </div>
-  <div class="category__visual">
-  <p class="category__hint">Tap an image to bring it forward</p>
-  <img class="category__slide role-main" data-index="0" src="images/gallery/3d.jpeg" alt="Traditional tattoo example 1">
-  <img class="category__slide role-thumb-a" data-index="1" src="images/gallery/blackwork.jpeg" alt="Traditional tattoo example 2">
-  <img class="category__slide role-thumb-b" data-index="2" src="images/gallery/cartoon.jpeg" alt="Traditional tattoo example 3">
-  <img class="category__slide role-thumb-c" data-index="3" src="images/gallery/micro.jpeg" alt="Traditional tattoo example 4">
-  <div class="category__dots">
-    <button class="category__dot is-active" aria-label="Show image 1"></button>
-    <button class="category__dot" aria-label="Show image 2"></button>
-    <button class="category__dot" aria-label="Show image 3"></button>
-    <button class="category__dot" aria-label="Show image 4"></button>
-  </div>
-</div>
-</div>
-</section>
+<div id="gallery">
 <section class="category" id="cat-cartoon">
   <div class="category__info">
     <h3 class="category__title">Cartoon</h3>
@@ -374,6 +349,7 @@
     </div>
   </div>
 </section>
+</div>
 <section class="about" id="about">
   <div class="about__content">
     <p class="about__eyebrow">Our Story</p>
@@ -462,9 +438,40 @@
     </div>
   </div>
 </section>
+<section class="final-cta">
+  <p class="final-cta__eyebrow">Bone &amp; Ember Tattoo — Texas</p>
+  <h2 class="final-cta__title">Ready when you are.</h2>
+  <p class="final-cta__sub">Four artists, twelve styles, one form to get started.</p>
+  <a href="booking.html" class="btn btn--primary final-cta__btn">Get Inked</a>
+</section>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__logo">
+      <img src="images/logo-full.png" alt="Bone & Ember Tattoo Studio">
+    </div>
+    <div class="site-footer__info">
+      <nav class="site-footer__socials">
+        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/YOUR_HANDLE" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/YOUR_HANDLE" target="_blank" rel="noopener">X</a>
+      </nav>
+      <p class="site-footer__about">
+        [PLACEHOLDER] Four artists, one studio — real craftsmanship and a booking process that actually respects your time. Based in Texas, by appointment.
+      </p>
+      <nav class="site-footer__nav">
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </div>
+  <p class="site-footer__copy">&copy; Bone &amp; Ember Tattoo. Texas. By appointment.</p>
+</footer>
 <script type="module" src="./js/firebase-config.js"></script>
 <script src="./js/gallery.js"></script>
 <script src="./js/faq.js"></script>
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="./js/ui.js"></script>
 <script>
   function setNavHeight() {
     const nav = document.querySelector('.navbar');
@@ -473,6 +480,5 @@
   setNavHeight();
   window.addEventListener('resize', setNavHeight);
 </script>
-
 </body>
 </html>

@@ -1,9 +1,5 @@
 import { db } from "./firebase-config.js";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 document.getElementById("bookingForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -11,25 +7,28 @@ document.getElementById("bookingForm").addEventListener("submit", async (e) => {
   const statusEl = document.getElementById("formStatus");
   statusEl.textContent = "Submitting...";
 
-  const selectedStyles = Array.from(
-    document.querySelectorAll('input[name="style"]:checked'),
-  ).map((el) => el.value);
+  const selectedStyles = Array.from(document.querySelectorAll('input[name="style"]:checked'))
+    .map(el => el.value);
 
-  const locationPreference =
-    document.querySelector('input[name="location"]:checked')?.value || "";
+  const sessionTiming = document.querySelector('input[name="sessionTiming"]:checked')?.value || "";
+  const locationPreference = document.querySelector('input[name="location"]:checked')?.value || "";
 
   const data = {
     clientName: document.getElementById("clientName").value.trim(),
+    socialMediaLink: document.getElementById("socialMediaLink").value.trim(),
     clientEmail: document.getElementById("clientEmail").value.trim(),
     clientPhone: document.getElementById("clientPhone").value.trim(),
-    dob: new Date(document.getElementById("dob").value),
-    ageConfirmed: document.getElementById("ageConfirmed").checked,
     styleRequested: selectedStyles,
+    designBrief: document.getElementById("designBrief").value.trim(),
+    sessionTiming: sessionTiming,
+    placement: document.getElementById("placement").value.trim(),
     referenceImages: document.getElementById("referenceImage").value.trim()
       ? [document.getElementById("referenceImage").value.trim()]
       : [],
+    clientHometown: document.getElementById("clientHometown").value.trim(),
     locationPreference: locationPreference,
     clientAddress: document.getElementById("clientAddress").value.trim(),
+    ageConfirmed: document.getElementById("ageConfirmed").checked,
     depositAgreed: document.getElementById("depositAgreed").checked,
     depositAgreedAt: serverTimestamp(),
     status: "NEW",
@@ -38,13 +37,11 @@ document.getElementById("bookingForm").addEventListener("submit", async (e) => {
     assignedDay: null,
     paymentReference: null,
     depositPaidAt: null,
-    notes: document.getElementById("notes").value.trim(),
+    notes: "",
     createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
+    updatedAt: serverTimestamp()
   };
 
-  // Client-side guard mirroring the Firestore rule — catch obvious
-  // problems before even hitting the network.
   if (!data.ageConfirmed || !data.depositAgreed) {
     statusEl.textContent = "Please confirm both checkboxes before submitting.";
     return;
@@ -56,7 +53,6 @@ document.getElementById("bookingForm").addEventListener("submit", async (e) => {
     e.target.reset();
   } catch (err) {
     console.error(err);
-    statusEl.textContent =
-      "Something went wrong submitting your request. Please try again or DM us on Instagram.";
+    statusEl.textContent = "Something went wrong submitting your request. Please try again or DM us on Instagram.";
   }
 });
