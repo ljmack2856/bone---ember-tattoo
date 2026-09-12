@@ -1,0 +1,221 @@
+:root {
+  --admin-bg: #f5f4f2;
+  --admin-surface: #ffffff;
+  --admin-border: #dcd9d4;
+  --admin-text: #1f1d1b;
+  --admin-text-muted: #6b6660;
+  --admin-accent: #b3491f;
+  --admin-accent-hover: #c95a2a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---------- Admin nav ---------- */
+.admin-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: var(--admin-surface);
+  border-bottom: 1px solid var(--admin-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.admin-nav__logo {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.admin-nav__links a {
+  color: var(--admin-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.admin-nav__links a:hover {
+  color: var(--admin-accent);
+}
+
+/* ---------- Buttons ---------- */
+.btn-admin {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-admin--primary {
+  background: var(--admin-accent);
+  color: #fff;
+  border: none;
+}
+
+.btn-admin--primary:hover {
+  background: var(--admin-accent-hover);
+}
+
+.btn-admin--ghost {
+  background: transparent;
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text);
+}
+
+.btn-admin--ghost:hover {
+  border-color: var(--admin-text-muted);
+}
+
+.btn-admin:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Login ---------- */
+.login-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+  padding: 2rem;
+}
+
+.login-form {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-form h1 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--admin-text-muted);
+}
+
+.login-form input {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 4px;
+}
+
+.login-form input:focus-visible {
+  outline: 2px solid var(--admin-accent);
+  outline-offset: 1px;
+}
+
+.login-status {
+  font-size: 0.85rem;
+  color: var(--admin-accent);
+  margin: 0;
+}
+
+/* ---------- Dashboard main ---------- */
+.dashboard-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.dashboard-title {
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.requests-status {
+  color: var(--admin-text-muted);
+  font-size: 0.9rem;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.request-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.request-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.request-card__name {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.request-card__meta {
+  font-size: 0.85rem;
+  color: var(--admin-text-muted);
+  line-height: 1.6;
+}
+
+.request-card__meta strong {
+  color: var(--admin-text);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge--new { background: #e8f0fe; color: #1a56db; }
+.status-badge--claimed { background: #fef3e0; color: #b3491f; }
+.status-badge--day_assigned { background: #eaf6ec; color: #1a7f37; }
+.status-badge--deposit_paid { background: #eaf6ec; color: #1a7f37; }
+.status-badge--completed { background: #ececec; color: #555; }
+.status-badge--cancelled { background: #fbe9e9; color: #b42318; }
+
+.request-card__actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .admin-nav {
+    padding: 1rem 1.25rem;
+  }
+  .request-card__top {
+    flex-direction: column;
+  }
+}
