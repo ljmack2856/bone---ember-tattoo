@@ -51,6 +51,22 @@ document.getElementById("bookingForm").addEventListener("submit", async (e) => {
     await addDoc(collection(db, "requests"), data);
     statusEl.textContent = "Thanks! We'll be in touch within 24 hours.";
     e.target.reset();
+
+    // Notify the studio inbox — best-effort; a failure here shouldn't
+    // block the client from seeing their submission succeeded.
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_NEW_REQUEST, {
+        client_name: data.clientName,
+        client_email: data.clientEmail,
+        client_phone: data.clientPhone,
+        styles: data.styleRequested.join(", "),
+        session_timing: data.sessionTiming,
+        placement: data.placement,
+        design_brief: data.designBrief
+      });
+    } catch (emailErr) {
+      console.error("Notification email failed to send:", emailErr);
+    }
   } catch (err) {
     console.error(err);
     statusEl.textContent = "Something went wrong submitting your request. Please try again or DM us on Instagram.";
