@@ -29,12 +29,31 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "logo links cta";
   align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
   padding: 1.5rem 3rem;
   background: var(--color-black);
   border-bottom: 1px solid rgba(232, 225, 211, 0.1);
+}
+
+.navbar__logo {
+  grid-area: logo;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar__links {
+  grid-area: links;
+  justify-self: center;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.navbar__cta {
+  grid-area: cta;
 }
 
 .navbar__logo {
@@ -53,13 +72,6 @@ body {
   font-family: var(--font-display);
   font-size: 1.25rem;
   letter-spacing: 0.02em;
-}
-
-.navbar__links {
-  display: flex;
-  gap: 2.5rem;
-  justify-content: center;
-  flex: 1;
 }
 
 .navbar__links a {
@@ -178,15 +190,17 @@ body {
 /* ---------- Mobile: hero + navbar ---------- */
 @media (max-width: 768px) {
   .navbar {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo cta"
+      "links links";
+    row-gap: 1rem;
     padding: 1.25rem 1.5rem;
   }
   .navbar__links {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
+    justify-self: start;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    margin-top: 1rem;
   }
   .hero {
     grid-template-columns: 1fr;
