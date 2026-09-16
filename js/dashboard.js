@@ -196,6 +196,7 @@ async function assignDay(id, data) {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_DAY_ASSIGNED, {
       to_email: data.clientEmail,
       client_name: data.clientName,
+      client_phone: data.clientPhone,
       assigned_day: dayInput.trim()
     });
   } catch (emailErr) {

@@ -8,21 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="images/logo-icon.png">
 </head>
 <body>
 
 <header class="navbar">
-  <a href="index.html" class="navbar__logo">
-  <img src="images/logo-icon.png" alt="Bone & Ember" class="navbar__logo-icon">
-  <span class="navbar__logo-text">BONE &amp; EMBER</span>
-</a>
+  <div class="navbar__logo">
+    <span class="navbar__logo-text">BONE &amp; EMBER</span>
+  </div>
   <nav class="navbar__links">
     <a href="index.html#gallery">Gallery</a>
     <a href="index.html#about">About</a>
     <a href="index.html#faq">FAQ</a>
   </nav>
-  <a href="form.html" class="btn btn--primary navbar__cta">Get Inked</a>
+  <a href="booking.html" class="btn btn--primary navbar__cta">Get Inked</a>
 </header>
 
 <section class="booking">
@@ -120,6 +118,7 @@
       <p>
         A <strong>$400 deposit</strong> is required once an artist reviews your request and assigns you a day.
         It's <strong>non-refundable</strong>, but counts toward your final bill — you're not paying it now, and you're not paying it twice.
+        Once your day is confirmed, we'll email you bank transfer details to complete it.
       </p>
       <label class="checkbox-line">
         <input type="checkbox" id="depositAgreed" required>
@@ -131,37 +130,9 @@
     <p id="formStatus" class="booking-form__status"></p>
   </form>
 </section>
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__logo">
-      <img src="images/logo-full.png" alt="Bone & Ember Tattoo Studio">
-    </div>
-    <div class="site-footer__info">
-      <nav class="site-footer__socials">
-        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://facebook.com/YOUR_HANDLE" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://x.com/YOUR_HANDLE" target="_blank" rel="noopener">X</a>
-      </nav>
-      <p class="site-footer__about">
-         One studio — real craftsmanship and a booking process that actually respects your time. Based in Texas, by appointment.
-      </p>
-      <nav class="site-footer__nav">
-        <a href="index.html#gallery">Gallery</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#faq">FAQ</a>
-      </nav>
-    </div>
-  </div>
-  <p class="site-footer__copy">&copy; Bone &amp; Ember Tattoo. Texas. By appointment.</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="./js/emailjs-config.js"></script>
+
 <script type="module" src="./js/firebase-config.js"></script>
 <script type="module" src="./js/form.js"></script>
-<script type="module" src="./js/firebase-config.js"></script>
-<script type="module" src="./js/form.js"></script>
-<button class="back-to-top" aria-label="Back to top">↑</button>
-<script src="./js/ui.js"></script>
 <script>
   function setNavHeight() {
     const nav = document.querySelector('.navbar');
@@ -182,5 +153,6 @@
     addressInput.required = true;
   });
 </script>
+
 </body>
 </html>
